@@ -149,7 +149,7 @@ class tool_coursesdatabase_sync {
                     $course = $DB->get_record('course', array($localcoursefield => $fields[$remotecoursefield]), 'id,visible,shortname');
                     if (empty($course)) {
                         // Create new course
-                        $trace->output("Caching course for creation: $fields[$courseshortname].", 1);
+                        $trace->output("$fields[$remotecoursefield] not found. Caching course for creation: $fields[$courseshortname].", 1);
                         $course = new stdClass();
                         $course->fullname  = $fields[$coursefullname];
                         $course->shortname = $fields[$courseshortname];
