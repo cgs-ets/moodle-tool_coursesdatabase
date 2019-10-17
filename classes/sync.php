@@ -146,7 +146,7 @@ class tool_coursesdatabase_sync {
                     }
 
                     // Check whether the course exists.
-                    $course = $DB->get_record('course', array($localcoursefield => $fields[$remotecoursefield]), 'id,visible');
+                    $course = $DB->get_record('course', array($localcoursefield => $fields[$remotecoursefield]), 'id,visible,shortname');
                     if (empty($course)) {
                         // Create new course
                         $trace->output("Caching course for creation: $fields[$courseshortname].", 1);
